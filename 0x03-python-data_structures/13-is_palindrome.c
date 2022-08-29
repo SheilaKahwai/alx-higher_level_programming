@@ -5,7 +5,7 @@
  * @head: double pointer to first element of list
  */
 
-void *reverse_listint(listint_t **head)
+void reverse_listint(listint_t **head)
 {
   listint_t *prev = NULL;
   listint_t *next = NULL;
