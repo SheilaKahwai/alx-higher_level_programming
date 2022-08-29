@@ -59,5 +59,6 @@ int is_palindrome(listint_t **head)
     }
   if (!dup)
     return (1);
+  return (0);
 }
 
