@@ -11,7 +11,6 @@ class Square:
     Public instance method: def area(self).
     Public instance method: def my_print(self).
     """
-    
     def __init__(self, size=0):
         """Initializes the object's data."""
         self.__size = size
@@ -20,7 +19,7 @@ class Square:
     def size(self):
         """Retrieves the square's size."""
         return self.__size
-    
+
     @size.setter
     def size(self, value):
         """Sets the size to a value."""
@@ -29,12 +28,12 @@ class Square:
         elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-        
+
     def area(self):
         """Returns a square's area."""
         sq_area = self.__size ** 2
         return sq_area
-    
+
     def my_print(self):
         """prints in stdout the square with the character #."""
         if self.__size == 0:
