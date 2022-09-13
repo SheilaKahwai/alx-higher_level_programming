@@ -14,7 +14,6 @@ class Square:
     Public instance method: def area(self).
     Public instance method: def my_print(self).
     """
-    
     def __init__(self, size=0, position=(0, 0)):
         """Initializes the object's data."""
         self.__size = size
@@ -33,7 +32,7 @@ class Square:
         elif value > 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-        
+
     @property
     def position(self):
         """Retrieves the position."""
@@ -49,7 +48,7 @@ class Square:
         if value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
-        
+
     def area(self):
         """Returns the current square area."""
         sq_area = self.__size ** 2
