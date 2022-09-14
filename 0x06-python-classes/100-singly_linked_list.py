@@ -12,7 +12,7 @@ class Node:
         - property setter def data(self, value)
     Instantiation with data and next_node.
     """
-    def __init__(self, data, next_node):
+    def __init__(self, data, next_node=None):
         """Initializes the data of the node."""
         self.__data = data
         self.__next_node = next_node
@@ -53,7 +53,17 @@ class SinglyLinkedList:
     """
     def __init__(self):
         """Initialiazes the data of the linked list."""
-        self.__head = head
+        self.__head = None
+
+    def __str__(self):
+        """To print the node's data."""
+        data_str = ""
+        current = self.__head
+        while current:
+            data_str += str(current.data)
+            data_str += '\n'
+            current = current.next_node
+        return data_str[:-1]
 
     def sorted_insert(self, value):
         """Inserts a new Node into the correct sorted position
@@ -62,17 +72,17 @@ class SinglyLinkedList:
         new_node = Node(value)
         current = self.__head
         if self.__head is None:
-            new_node.next_node = None
             self.__head = new_node
-            return self.__head
-        while current.next_node:
-            if current.next_node.data > new_node.data:
-                new_node.next_node = current.next_node
-                current.next_node = new_node
-                return new_node
-            current = current.next_node
-        new_node.next_node = None
-        current.next_node = new_node
-        return new_node
+        elif self.__head.data > value:
+            new_node.next_node = self.__head
+            self.__head = new_node
+        else:
+            while current.next_node:
+                if current.next_node.data > value:
+                    new_node.next_node = current.next_node
+                    break
+                else:
+                    current = current.next_node
+            current.next_node = new_node
             
         
