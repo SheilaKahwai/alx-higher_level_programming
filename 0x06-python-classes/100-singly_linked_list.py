@@ -37,7 +37,7 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """Sets the address of the next node to a value."""
-        if not isInstance(value, Node) and not None:
+        if not isinstance(value, Node) and not None:
             raise TypeError('next_node must be a Node object')
         self.__next_node = value
 
@@ -84,5 +84,3 @@ class SinglyLinkedList:
                 else:
                     current = current.next_node
             current.next_node = new_node
-            
-        
