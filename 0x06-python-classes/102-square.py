@@ -14,6 +14,28 @@ class Square:
         """Initializes the object's data."""
         self.__size = size
 
+    def __eq__(self, other):
+        """Equal."""
+        if hasattr(other, 'size'):
+            return self.__size == other.__size
+        return self.__size == other
+
+    def __ne__(self, other):
+        """Not equal."""
+        return not self.__eq__(other)
+
+    def __lt__(self, other):
+        """Less than."""
+        if hasattr(other, 'size'):
+            return self.__size < other.__size
+        return self.__size < other
+
+    def __le__(self, other):
+        """Less than or equal to."""
+        if hasattr(other, 'size'):
+            return self.__size <= other.__size
+        return self.__size <= other
+
     @property
     def size(self):
         """Retrieves the square's size."""
@@ -24,9 +46,9 @@ class Square:
         """Sets the square's size to a value."""
         if type(value) is not int or type(value) is not float:
             raise TypeError('size must be a number')
-        if size < 0:
+        if value < 0:
             raise TypeError('size must be >= 0')
-        self.__self = value
+        self.__size = value
 
     def area(self):
         """Returns the area of a square."""
