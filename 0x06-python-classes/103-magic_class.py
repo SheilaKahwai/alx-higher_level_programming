@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+"""A MagicClass that does exactly the same as a Python bytecode."""
 from math import pi
-"""A class MagicClass that does exactly the same as a Python bytecode."""
 
 
 class MagicClass:
