@@ -54,4 +54,3 @@ class Square:
         """Returns the area of a square."""
         sq_area = self.__size ** 2
         return sq_area
-    
