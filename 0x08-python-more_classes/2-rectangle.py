@@ -49,7 +49,6 @@ class Rectangle:
 
     def area(self):
         """Calculates the area of a rectangle.
-        
         Returns:
             Area of the rectangle.
         """
@@ -57,7 +56,6 @@ class Rectangle:
 
     def perimeter(self):
         """Calculates the perimeter of a rectangle.
-
         Returns:
             Perimeter of the rectangle.
         """

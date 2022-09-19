@@ -11,7 +11,7 @@ class Rectangle:
         print_symbol: Used as symbol for string representation
     """
     number_of_instances = 0
-    print_symbol = '#'    
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """Initializes the instances of the Rectangle.
@@ -113,7 +113,7 @@ class Rectangle:
             raise TypeError('rect_1 must be an instance of Rectangle')
         if not isinstance(rect_2, Rectangle):
             raise TypeError('rect_2 must be an instance of Rectangle')
-        if rect_1.area() == rect_2.area() or rect_1.area() > rect_2.area() :
+        if rect_1.area() == rect_2.area() or rect_1.area() > rect_2.area():
             return rect_1
         if rect_1.area() < rect_2.area():
             return rect_2
