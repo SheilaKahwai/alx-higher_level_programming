@@ -8,9 +8,10 @@ class Rectangle:
         number_of_instances: number of rectangle instances
         increments with every instantiation and decrements
         with every deletion.
+        print_symbol: Used as symbol for string representation
     """
     number_of_instances = 0
-    
+    print_symbol = '#'    
     def __init__(self, width=0, height=0):
         """Initializes the instances of the Rectangle.
         Args:
@@ -31,7 +32,7 @@ class Rectangle:
         string = ''
         for i in range(self.__height):
             for j in range(self. __width):
-                string += '#'
+                string += str(self.print_symbol)
             string += '\n'
         return string[:-1]
 
