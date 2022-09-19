@@ -34,6 +34,10 @@ class Rectangle:
         """
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
+    def __del__(self):
+        """Deletes an instance of a rectangle."""
+        print("Bye Rectangle...")
+
     @property
     def width(self):
         """Retrieves the width."""
