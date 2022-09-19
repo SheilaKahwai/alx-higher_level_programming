@@ -3,7 +3,14 @@
 
 
 class Rectangle:
-    """Represents a rectangle."""
+    """Represents a rectangle.
+    Attributes:
+        number_of_instances: number of rectangle instances
+        increments with every instantiation and decrements
+        with every deletion.
+    """
+    number_of_instances = 0
+    
     def __init__(self, width=0, height=0):
         """Initializes the instances of the Rectangle.
         Args:
@@ -12,6 +19,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     def __str__(self):
         """Returns an informal string representation
@@ -37,6 +45,7 @@ class Rectangle:
     def __del__(self):
         """Deletes an instance of a rectangle."""
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
 
     @property
     def width(self):
