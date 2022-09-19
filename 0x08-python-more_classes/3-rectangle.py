@@ -13,6 +13,20 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def __str__(self):
+        """Returns an informal string representation
+        of an instance of a triangle filled with the
+        '#' character.
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ''
+        string = ''
+        for i in range(self.__height):
+            for j in range(self. __width):
+                string += '#'
+            string += '\n'
+        return string[:-1]
+
     @property
     def width(self):
         """Retrieves the width."""
@@ -49,7 +63,6 @@ class Rectangle:
 
     def area(self):
         """Calculates the area of a rectangle.
-        
         Returns:
             Area of the rectangle.
         """
@@ -57,7 +70,6 @@ class Rectangle:
 
     def perimeter(self):
         """Calculates the perimeter of a rectangle.
-
         Returns:
             Perimeter of the rectangle.
         """
