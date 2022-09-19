@@ -10,10 +10,12 @@ def text_indentation(text):
     if type(text) is not str:
         raise TypeError('text must be a string')
     char_list = ['.', '?', ':']
+    line = ""
     for word in text:
-        line = ""
         if word not in char_list:
             line += word
         else:
             line += word
-            print(line.strip() + '\n\n')
+            print(line.strip() + '\n')
+            line = ""
+    print(line.strip())
