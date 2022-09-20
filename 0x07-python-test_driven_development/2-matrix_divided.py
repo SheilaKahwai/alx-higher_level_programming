@@ -13,7 +13,7 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError('division by zero')
     new_matrix = []
-    if len(matrix) == 0 or not isinstance(matrix, list):
+    if len(matrix) == 0 or not isinstance(matrix, list) or not matrix[0]:
         raise TypeError('matrix must be a matrix (list of lists)' +
                         'of integers/floats')
     row_len = len(matrix[0])
