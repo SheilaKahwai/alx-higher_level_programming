@@ -40,12 +40,13 @@ class TestMaxInteger(unittest.TestCase):
         """Test with negative integers."""
         a = [-80, -72, -71]
         res = max_integer(a)
-        self.asserEqual(res, -71)
+        self.assertEqual(res, -71)
 
     def test_not_list(self):
         """Test with string parameter."""
         a = "String"
-        self.assertRaises(TypeError, max_integer, a)
+        res = max_integer(a)
+        self.assertEqual(res, 't')
 
     def test_only_num(self):
         """Test with list with only one integer."""
