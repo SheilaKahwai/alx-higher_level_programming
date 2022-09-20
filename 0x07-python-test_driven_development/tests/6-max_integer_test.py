@@ -72,5 +72,6 @@ class TestMaxInteger(unittest.TestCase):
         res = max_integer(a)
         self.assertEqual(res, 9.2)
 
+
 if __name__ == '__main__':
     unittest.main()
