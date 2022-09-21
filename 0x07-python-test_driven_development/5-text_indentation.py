@@ -18,4 +18,4 @@ def text_indentation(text):
             line += word
             print(line.strip() + '\n')
             line = ""
-    print(line.strip())
+    print(line.strip(), end="")
