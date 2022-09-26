@@ -7,8 +7,13 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
+    """subclass of BaseGeometry
+    Instantiation with width and height
+    Public instance method: def area
+    """
     
     def __init__(self, width, height):
+        """Instantiates the class object."""
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
