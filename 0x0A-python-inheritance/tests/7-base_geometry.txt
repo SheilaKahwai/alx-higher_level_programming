@@ -44,3 +44,29 @@ TypeError: name must be an integer
 >>> bg.integer_validator("Name", 9.8)
 Traceback (most recent call last):
 TypeError: Name must be an integer
+
+>>> bg.integer_validator("NaN", float('nan'))
+Traceback (most recent call last):
+TypeError: NaN must be an integer
+
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg.integer_validator("Big", 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
