@@ -11,7 +11,7 @@ class Rectangle(BaseGeometry):
     Instantiation with width and height
     Public instance method: def area
     """
-    
+
     def __init__(self, width, height):
         """Instantiates the class object."""
         self.integer_validator("width", width)
@@ -19,7 +19,7 @@ class Rectangle(BaseGeometry):
         self.__width = width
         self.__height = height
 
-    def area():
+    def area(self):
         """Finds the area of a rectangle."""
         return self.__width * self.__height
 
