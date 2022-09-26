@@ -9,11 +9,15 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 class Rectangle(BaseGeometry):
     """subclass of BaseGeometry
     Instantiation with width and height
-    Public instance method: def area
+    Public instance method: def area(self)
     """
 
     def __init__(self, width, height):
-        """Instantiates the class object."""
+        """Instantiates the class object.
+        Args:
+            width: width of rectangle
+            height: height of rectangle.
+        """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
@@ -25,5 +29,5 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         """Prints an informal string representation of the object."""
-        return "[{}] {}/{}".format(type(self).__name__,
+        return "[{}] {}/{}".format(self.__class__.__name__,
                                    self.__width, self.__height)
