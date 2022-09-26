@@ -25,5 +25,5 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         """Prints an informal string representation of the object."""
-        return "[{}] {}/{}".format(self.__class__.__name__,
+        return "[{}] {}/{}".format(type(self).__name__,
                                    self.__width, self.__height)
