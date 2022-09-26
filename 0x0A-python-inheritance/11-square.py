@@ -25,3 +25,10 @@ class Square(Rectangle):
     def area(self):
         """Finds the area of a square."""
         return self.__size ** 2
+
+    def __str__(self):
+        """Prints an informal string representation
+        of an object.
+        """
+        return "[{}] {}/{}".format(self.__class__.__name__,
+                                   self.__size, self.__size)
