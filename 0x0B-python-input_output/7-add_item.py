@@ -29,5 +29,3 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     filename = "add_item.json"
     add_item(args, filename)
-
-
