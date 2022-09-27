@@ -12,6 +12,7 @@ class Student:
         -age
     Instantiation with first_name, last_name and age.
     Public method def to_json(self)
+    Public method def reload_from_json(self, json)
     """
 
     def __init__(self, first_name, last_name, age):
@@ -35,3 +36,11 @@ class Student:
                     my_dict.update({attr: self.__dict__[attr]})
             return my_dict
         return self.__dict__
+
+    def reload_from_json(self, json):
+        """replaces all attributes of the Student instance.
+        Args:
+            -json: dictionary
+        """
+        for key, val in json.items():
+            self.__setattr__(key, val)
