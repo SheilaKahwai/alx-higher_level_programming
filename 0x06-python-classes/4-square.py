@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""A class Square that defines a square."""
+
 
 class Square:
     """Represents a square.
@@ -8,7 +10,6 @@ class Square:
     Instantiation with optional size.
     Public instance method: def area(self).
     """
-    
     def __init__(self, size=0):
         """Initializes the object's data."""
         self.__size = size
@@ -26,7 +27,7 @@ class Square:
         elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-        
+
     def area(self):
         """Returns the area of a square."""
         sq_area = self.__size ** 2
