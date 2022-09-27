@@ -4,9 +4,6 @@ Returns class instance attributes for serialization
 """
 
 
-import json
-
-
 def class_to_json(obj):
     """Converts a python class instance to a 
     dictionary description.
