@@ -17,7 +17,7 @@ def pascal_triangle(n):
     matrix = []
     for i in range(n):
         lil_matrix = []
-        num = str(11 ** 1)
+        num = str(11 ** i)
         for x in num:
             lil_matrix.append(int(x))
         matrix.append(lil_matrix)
