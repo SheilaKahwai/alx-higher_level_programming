@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-import json
 """Module 4-from_json_string
 Deserializes a json string.
 """
+
+
+import json
 
 
 def from_json_string(my_str):
