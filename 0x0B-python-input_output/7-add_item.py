@@ -18,7 +18,7 @@ def add_item(args, filename):
     """
     try:
         f = load_from_json(filename)
-    except Exception:
+    except FileNotFoundError:
         f = []
     for s in args:
         f.append(s)
