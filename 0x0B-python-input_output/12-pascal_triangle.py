@@ -14,11 +14,11 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-    matrix = []
-    for i in range(n):
+    matrix = [[1]]
+    for i in range(1, n):
+        temp = [0] + matrix[-1] + [0]
         lil_matrix = []
-        num = str(11 ** i)
-        for x in num:
-            lil_matrix.append(int(x))
+        for j in range(len(matrix[-1]) + 1):
+            lil_matrix.append(temp[j] + temp[j + 1])
         matrix.append(lil_matrix)
     return matrix
