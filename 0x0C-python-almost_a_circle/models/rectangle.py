@@ -101,8 +101,18 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """Prints an informal string representation of an object."""
         return "[{}] ({}) {}/{} - {}/{}".format(self.__name__, self.__id, self.__x,\
                 self.__y, self.__width, self.__height)
 
-    def update(self, *args):
-        
+    def update(self, *args, **kwargs):
+        """Assigns an argument to each attribute.
+        Args:
+            - *args: positional arguments
+            - **kwargs: keyworded arguments
+        """
+        self.__id = args[0]
+        self.__width = args[1]
+        self.__height  = args[2]
+        self.__x = args[3]
+        self.__y = args[4]
