@@ -25,6 +25,7 @@ class Rectangle(Base):
     Public instance method: def area(self)
     Public instance method: def display(self)
     Public instance method: def update(self, *args)
+    Public instance method: def to_dictionary(self)
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -132,3 +133,8 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 self.__setattr__(key, value)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Rectangle."""
+        my_dict = {'id': self.id, 'width': self.width, 'height': self.height, 'x': self.x, 'y': self.y}
+        return my_dict

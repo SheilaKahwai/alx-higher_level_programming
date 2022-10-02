@@ -31,7 +31,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """Retrieves the width"""
-        return self.__width
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -40,12 +40,12 @@ class Square(Rectangle):
             raise TypeError('width must be an integer')
         if value <= 0:
             raise ValueError('width must be > 0')
-        self.__width = value
-        self.__height = value
+        self.width = value
+        self.height = value
 
     def __str__(self):
         """Prints an informal string representation of an object."""
-        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__, self.id, self.x,\
+        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__, self.id, self.x,\
                 self.y, self.width)
 
     def update(self, *args, **kwargs):
@@ -65,3 +65,8 @@ class Square(Rectangle):
         else:
             for key, value in kwargs.items():
                 self.__setattr__(key, value)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Square."""
+        my_dict = {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        return my_dict
