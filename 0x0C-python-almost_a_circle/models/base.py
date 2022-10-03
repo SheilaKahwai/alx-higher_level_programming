@@ -51,7 +51,7 @@ i            - json string representation of the list object
         Args:
             - list_objs: list of class instances.
         """
-        file_name = "{}.json".format(class.__name__)
+        file_name = "{}.json".format(cls.__name__)
         content = []
         if list_objs is not None:
             for item in list_objs:
