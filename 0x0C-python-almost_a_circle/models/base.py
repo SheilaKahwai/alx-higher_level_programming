@@ -4,6 +4,9 @@ Includes the projects base class Base.
 """
 
 
+import json
+
+
 class Base:
     """base class of our project.
     Public instance attribute: id
@@ -35,7 +38,7 @@ class Base:
         Args:
             - list_dictionaries: list of dictionaries.
         Returns:
-            - json string representation of the list object
+i            - json string representation of the list object
         """
         if list_dictionaries is None:
             return "[]"
@@ -48,14 +51,16 @@ class Base:
         Args:
             - list_objs: list of class instances.
         """
-        file_name = "{}.json".format(cls.__name__)
-    
-        with open(file_name, mode='w', encoding="utf-8") as f:
-            if list_objs is None:
-                f.write("[]")
-            else:
-                jstr = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
-            json.dump(jstr, f)
+        file_name = "{}.json".format(class.__name__)
+        content = []
+        if list_objs is not None:
+            for item in list_objs:
+                item = item.to_dictionary()
+                json_dict = json.loads(cls.to_json_string(item))
+                content.append(json_dict)
+
+        with open(file_name, mode="w", encoding="utf-8") as fd:
+            json.dump(content, fd)
             
     @staticmethod
     def from_json_string(json_string):
