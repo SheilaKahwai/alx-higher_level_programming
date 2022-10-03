@@ -21,6 +21,7 @@ class TestBase(unittest.TestCase):
         print("Base tearDownClass")
 
     def setUp(self):
+        Base._Base__nb_objects = 0
         print("Base setUp")
 
     def tearDown(self):
@@ -77,7 +78,7 @@ class TestBase(unittest.TestCase):
 
         with open("Square.json", "r") as file:
             x = (file.read())
-        res1 = ('[{"y": 2, "x": 7, "id": 8, "size": 10},' +
+        res1 = ('[{"y": 2, "x": 7, "id": 8, "size": 10}, ' +
                 '{"y": 0, "x": 4, "id": 18, "size": 2}]')
         self.assertEqual(len(x), len(res1))
 
