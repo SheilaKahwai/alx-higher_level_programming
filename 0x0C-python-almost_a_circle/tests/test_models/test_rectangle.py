@@ -4,7 +4,8 @@ Unittests to perform on the Rectangle class
 """
 
 
-from typing import Type
+import io
+import contextlib
 import unittest
 from models.rectangle import Rectangle
 
@@ -130,3 +131,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.x, 10)
         self.assertEqual(r2.y, 10)
         self.assertEqual(r2.id, 40)
+
+    def test_display(self):
+        f = io.StringIO()
+        s1 = Rectangle(2, 2)
+        with contextlib.redirect_stdout(f):
+            s1.display()
+        s1 = f.getvalue()
+        self.assertEqual(s1, "##\n##\n")
+
+        s2 = Rectangle(3, 2, 3, 1)
+        x = io.StringIO()
+        with contextlib.redirect_stdout(x):
+            s2.display()
+        s2 = x.getvalue()
+        self.assertEqual(s2, "\n   ###\n   ###\n")
+
+    def test_to_dict(self):
+        r1 = Rectangle(10, 2, 1, 9, 30)
+        self.assertEqual(r1.to_dictionary(), {'x': 1, 'y': 9, 'id': 30, 'height': 2, 'width': 10})
