@@ -44,7 +44,8 @@ class TestBase(unittest.TestCase):
         obj = {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
         json_str = Base.to_json_string([obj])
         self.assertTrue(str, type(json_str))
-        self.assertCountEqual(json_str, '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]')
+        res = '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]'
+        self.assertCountEqual(json_str, res)
 
         json_str2 = Base.to_json_string([])
         self.assertEqual(json_str2, '[]')
@@ -61,13 +62,14 @@ class TestBase(unittest.TestCase):
 
         with open("Rectangle.json", "r") as file:
             x = (file.read())
-        res = '[{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7}, {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]'
-        self.assertEqual(len(x), len(res))   
-    
+        res = '[{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7},
+                {"y": 0, "x": 0, "id": 2, "width": 2, "height": 4}]'
+        self.assertEqual(len(x), len(res))
+
         Rectangle.save_to_file(None)
         res = "[]"
         with open("Rectangle.json", "r") as f:
-            self.assertEqual(f.read(), res)       
+            self.assertEqual(f.read(), res)
 
         r1 = Square(10, 7, 2, 8)
         r2 = Square(2, 4, 0, 18)
@@ -75,13 +77,14 @@ class TestBase(unittest.TestCase):
 
         with open("Square.json", "r") as file:
             x = (file.read())
-        res1 = '[{"y": 2, "x": 7, "id": 8, "size": 10}, {"y": 0, "x": 4, "id": 18, "size": 2}]'
-        self.assertEqual(len(x), len(res1))   
-    
+        res1 = ('[{"y": 2, "x": 7, "id": 8, "size": 10},' +
+                '{"y": 0, "x": 4, "id": 18, "size": 2}]')
+        self.assertEqual(len(x), len(res1))
+
         Square.save_to_file(None)
         res = "[]"
         with open("Square.json", "r") as f:
-            self.assertEqual(f.read(), res)        
+            self.assertEqual(f.read(), res)
 
         with self.assertRaises(AttributeError) as x:
             Base.save_to_file([Base(9), Base(5)])
@@ -150,7 +153,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(str(p1), str(p2))
         self.assertFalse(p1 is p2)
         self.assertFalse(p1 == p2)
-    
+
         with self.assertRaises(TypeError):
             r1 = "Hello"
             r2 = Rectangle.create(r1)
@@ -173,7 +176,7 @@ class TestBase(unittest.TestCase):
         list_squares_output = Square.load_from_file()
         for x in zip(list_squares_input, list_squares_output):
             self.assertEqual(str(x[0]), str(x[1]))
-        
+
         with self.assertRaises(TypeError):
             list_rectangles_output = Rectangle.load_from_file("Hello")
 

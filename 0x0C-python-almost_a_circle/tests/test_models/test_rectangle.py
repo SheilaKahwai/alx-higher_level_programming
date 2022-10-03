@@ -92,7 +92,7 @@ class TestRectangle(unittest.TestCase):
     def test_area(self):
         self.assertEqual(Rectangle(3, 2).area(), 6)
         self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
-    
+
     def test_str(self):
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
@@ -149,4 +149,5 @@ class TestRectangle(unittest.TestCase):
 
     def test_to_dict(self):
         r1 = Rectangle(10, 2, 1, 9, 30)
-        self.assertEqual(r1.to_dictionary(), {'x': 1, 'y': 9, 'id': 30, 'height': 2, 'width': 10})
+        res = {'x': 1, 'y': 9, 'id': 30, 'height': 2, 'width': 10}
+        self.assertEqual(r1.to_dictionary(), res)

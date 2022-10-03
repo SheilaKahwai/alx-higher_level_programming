@@ -48,7 +48,7 @@ class Rectangle(Base):
             raise TypeError('width must be an integer')
         if value <= 0:
             raise ValueError('width must be > 0')
-        self.__width  = value
+        self.__width = value
 
     @property
     def height(self):
@@ -107,13 +107,19 @@ class Rectangle(Base):
         for i in range(self.height):
             print(x, end="")
             for j in range(self.width):
-                 print('#', end="")
+                print('#', end="")
             print()
 
     def __str__(self):
         """Prints an informal string representation of an object."""
-        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__, self.id, self.x,\
-                self.y, self.width, self.height)
+        return "[{}] ({}) {}/{} - {}/{}".format(
+                                                self.__class__.__name__,
+                                                self.id,
+                                                self.x,
+                                                self.y,
+                                                self.width,
+                                                self.height
+                                                )
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute.
@@ -125,7 +131,7 @@ class Rectangle(Base):
             try:
                 self.id = args[0]
                 self.width = args[1]
-                self.height  = args[2]
+                self.height = args[2]
                 self.x = args[3]
                 self.y = args[4]
             except IndexError:
@@ -136,5 +142,11 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """returns the dictionary representation of a Rectangle."""
-        my_dict = {'id': self.id, 'width': self.width, 'height': self.height, 'x': self.x, 'y': self.y}
+        my_dict = {
+                    'id': self.id,
+                    'width': self.width,
+                    'height': self.height,
+                    'x': self.x,
+                    'y': self.y
+                    }
         return my_dict

@@ -45,8 +45,13 @@ class Square(Rectangle):
 
     def __str__(self):
         """Prints an informal string representation of an object."""
-        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__, self.id, self.x,\
-                self.y, self.width)
+        return "[{}] ({}) {}/{} - {}".format(
+                                            self.__class__.__name__,
+                                            self.id,
+                                            self.x,
+                                            self.y,
+                                            self.width
+                                            )
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute.

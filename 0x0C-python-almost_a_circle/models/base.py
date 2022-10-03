@@ -38,11 +38,10 @@ class Base:
         Args:
             - list_dictionaries: list of dictionaries.
         Returns:
-i            - json string representation of the list object
+            - json string representation of the list object
         """
         if list_dictionaries is None:
             return "[]"
-        
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -61,7 +60,7 @@ i            - json string representation of the list object
 
         with open(file_name, mode="w", encoding="utf-8") as fd:
             json.dump(content, fd)
-            
+
     @staticmethod
     def from_json_string(json_string):
         """returns the list of the JSON string representation json_string.
@@ -73,7 +72,7 @@ i            - json string representation of the list object
         if json_string is None:
             return []
         return json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         """returns an instance with all attributes already set.
@@ -88,7 +87,7 @@ i            - json string representation of the list object
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
-    
+
     @classmethod
     def load_from_file(cls):
         """retrieves a list of instances from a json file.
@@ -97,12 +96,12 @@ i            - json string representation of the list object
         """
         file_name = "{}.json".format(cls.__name__)
         instances = []
-        try:   
+        try:
             with open(file_name, encoding="utf-8") as f:
                 data = f.read()
                 objs = cls.from_json_string(data)
                 for o in objs:
-                      instances.append(cls.create(**o))
+                    instances.append(cls.create(**o))
         except FileNotFoundError:
             pass
         return instances

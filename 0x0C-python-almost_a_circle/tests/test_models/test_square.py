@@ -80,7 +80,7 @@ class TestSquare(unittest.TestCase):
     def test_area(self):
         self.assertEqual(Square(3).area(), 9)
         self.assertEqual(Square(8, 0, 0, 12).area(), 64)
-    
+
     def test_str(self):
         r1 = Square(4, 2, 1, 12)
         self.assertEqual(str(r1), "[Square] (12) 2/1 - 4")
@@ -88,7 +88,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str(r1), "[Square] (28) 1/0 - 5")
         r1 = Square(9, 0, 0, 14)
         self.assertEqual(str(r1), "[Square] (14) 0/0 - 9")
- 
+
     def test_update(self):
         r1 = Square(10, 10, 10, 10)
         r1.update(89)
@@ -117,7 +117,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r2.x, 4)
         self.assertEqual(r2.y, 10)
         self.assertEqual(r2.id, 40)
-    
+
     def test_display(self):
         f = io.StringIO()
         s1 = Square(2)
@@ -135,7 +135,8 @@ class TestSquare(unittest.TestCase):
 
     def test_to_dict(self):
         s = Square(10, 2, 1, 18)
-        self.assertEqual(s.to_dictionary(), {'id': 18, 'x': 2, 'size': 10, 'y': 1})
+        res = {'id': 18, 'x': 2, 'size': 10, 'y': 1}
+        self.assertEqual(s.to_dictionary(), res)
 
     def test_to_json_type(self):
         sq = Square(8)
@@ -160,4 +161,4 @@ class TestSquare(unittest.TestCase):
         sq = Square(8, 0, 0, 18)
         json_dict = sq.to_dictionary()
         json_string = Base.to_json_string([])
-        self.assertEqual(json_string, "[]") 
+        self.assertEqual(json_string, "[]")
